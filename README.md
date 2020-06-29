@@ -7,6 +7,8 @@
   - express
   - uuidv4
   - date-fns
+  - typeorm
+  - pg
 
 - Development
   - typescript
