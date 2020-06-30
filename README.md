@@ -10,6 +10,7 @@
   - typeorm
   - pg
   - reflect-metadata
+  - bcryptjs
 
 - Development
   - typescript
@@ -24,3 +25,4 @@
   - prettier
   - eslint-config-prettier
   - eslint-plugin-prettier
+  - @types/bcryptjs
