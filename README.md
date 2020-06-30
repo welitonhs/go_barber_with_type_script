@@ -9,6 +9,7 @@
   - date-fns
   - typeorm
   - pg
+  - reflect-metadata
 
 - Development
   - typescript
