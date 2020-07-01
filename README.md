@@ -11,6 +11,7 @@
   - pg
   - reflect-metadata
   - bcryptjs
+  - jsonwebtoken
 
 - Development
   - typescript
@@ -26,3 +27,4 @@
   - eslint-config-prettier
   - eslint-plugin-prettier
   - @types/bcryptjs
+  - @types/jsonwebtoken
