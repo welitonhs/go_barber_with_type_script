@@ -12,6 +12,7 @@
   - reflect-metadata
   - bcryptjs
   - jsonwebtoken
+  - multer
 
 - Development
   - typescript
@@ -28,3 +29,4 @@
   - eslint-plugin-prettier
   - @types/bcryptjs
   - @types/jsonwebtoken
+  - @types/multer
