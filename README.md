@@ -13,6 +13,7 @@
   - bcryptjs
   - jsonwebtoken
   - multer
+  - express-async-errors
 
 - Development
   - typescript
