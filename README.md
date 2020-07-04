@@ -14,6 +14,8 @@
   - jsonwebtoken
   - multer
   - express-async-errors
+  - cors
+  - tsyringe
 
 - Development
   - typescript
@@ -31,3 +33,5 @@
   - @types/bcryptjs
   - @types/jsonwebtoken
   - @types/multer
+  - @types/cors
+  - tsconfig-paths
