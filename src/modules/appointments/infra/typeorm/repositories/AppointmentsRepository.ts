@@ -12,7 +12,7 @@ class AppointmentsRepository implements IAppointmentsRepository {
     this.ormRepository = getRepository(Appointment);
   }
 
-  public async all(): Promise<Appointment[] | []> {
+  public async get(): Promise<Appointment[] | []> {
     const appointments = await this.ormRepository.find();
     return appointments;
   }

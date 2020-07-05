@@ -3,12 +3,12 @@ import { parseISO } from 'date-fns';
 import { container } from 'tsyringe';
 
 import CreateAppointmentService from '@modules/appointments/services/CreateAppointmentService';
-import AllAppointmentsService from '@modules/appointments/services/AllAppointmentsService';
+import GetAppointmentsService from '@modules/appointments/services/GetAppointmentsService';
 
 export default class AppointmentsController {
   public async index(request: Request, response: Response): Promise<Response> {
-    const allAppointments = container.resolve(AllAppointmentsService);
-    const appointments = await allAppointments.execute();
+    const getAppointments = container.resolve(GetAppointmentsService);
+    const appointments = await getAppointments.execute();
     return response.json(appointments);
   }
 
