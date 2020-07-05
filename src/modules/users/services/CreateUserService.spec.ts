@@ -1,12 +1,17 @@
 import AppError from '@shared/errors/AppError';
 
 import FakeUsersRepository from '../repositories/fakes/FakeUsersRepository';
+import FakeHashRepository from '../providers/HashProvider/fakes/FakeHashProvider';
 import CreateUserService from './CreateUserService';
 
 describe('CreateUser', () => {
   it('should be able to create a new user', async () => {
     const fakeUsersRepository = new FakeUsersRepository();
-    const createUser = new CreateUserService(fakeUsersRepository);
+    const fakeHashRepository = new FakeHashRepository();
+    const createUser = new CreateUserService(
+      fakeUsersRepository,
+      fakeHashRepository,
+    );
     const user = await createUser.execute({
       name: 'John Doe',
       email: 'johndoe@gmail.com',
@@ -21,7 +26,11 @@ describe('CreateUser', () => {
 
   it('should no be able to create two appointment on the same time', async () => {
     const fakeUsersRepository = new FakeUsersRepository();
-    const createUser = new CreateUserService(fakeUsersRepository);
+    const fakeHashRepository = new FakeHashRepository();
+    const createUser = new CreateUserService(
+      fakeUsersRepository,
+      fakeHashRepository,
+    );
     await createUser.execute({
       name: 'John Doe',
       email: 'johndoe@gmail.com',
