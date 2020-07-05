@@ -45,7 +45,7 @@ describe('AuthenticateUser', () => {
     ).rejects.toBeInstanceOf(AppError);
   });
 
-  it("should not be able to authenticate a user when email or password doesn't matchs", async () => {
+  it("should not be able to authenticate a user when password doesn't matchs", async () => {
     const fakeUsersRepository = new FakeUsersRepository();
     const fakeHashProvider = new FakeHashProvider();
     const createUser = new CreateUserService(
