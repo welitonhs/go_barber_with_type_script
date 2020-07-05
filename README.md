@@ -35,3 +35,6 @@
   - @types/multer
   - @types/cors
   - tsconfig-paths
+  - jest
+  - ts-jest
+  - @types/jest
