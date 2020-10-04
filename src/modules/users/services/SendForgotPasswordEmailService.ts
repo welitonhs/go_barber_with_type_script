@@ -4,8 +4,6 @@ import IUsersRepository from '@modules/users/repositories/IUsersRepository';
 import IUserTokensRepository from '@modules/users/repositories/IUserTokensRepository';
 import IMailProvider from '@shared/container/providers/MailProvider/models/IMailProvider';
 import AppError from '@shared/errors/AppError';
-// import User from '@modules/users/infra/typeorm/entities/User';
-// import AppError from '@shared/errors/AppError';
 
 interface IRequest {
   email: string;
@@ -30,9 +28,12 @@ class SendForgotPasswordEmailService {
       throw new AppError('User does not exists.');
     }
 
-    await this.userTokensRepository.generate(user.id);
+    const { token } = await this.userTokensRepository.generate(user.id);
 
-    this.mailProvider.sendMail(email, 'Sent recovery password');
+    await this.mailProvider.sendMail(
+      email,
+      `Sent recovery password, token: ${token}`,
+    );
   }
 }
 
