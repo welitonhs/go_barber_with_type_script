@@ -4,24 +4,24 @@
 
   ## Recovery Password
     **RF**
-      [] - Users must be able to recover their passwords using their emails.
-      [] - Users must receive an e-mail with instructions for recovering your password.
-      [] - Users must be able to reset their password.
+      [x] - Users must be able to recover their passwords using their emails.
+      [x] - Users must receive an e-mail with instructions for recovering your password.
+      [x] - Users must be able to reset their password.
     **RNF**
-      [] - Mailtrap to test emails on the development environment.
+      [x] - Ethereal to test emails on the development environment.
       [] - Amazon SES to send e-mails on the production environment.
       [] - The emails must be sent on background. (Background job)
     **RNF**
-      [] - The link sent by e-mail for the user to recover the password must expire in two hours.
+      [x] - The link sent by e-mail for the user to recover the password must expire in two hours.
       [] - The new password must be informed and re-enter.
 
   ## Profile Update
     **RF**
-      [] - Users must be able to update your name, email, and password.
+      [x] - Users must be able to update your name, email, and password.
     **RNF**
 
     **RNF**
-      [] - Users are not able to update your e-mail with an email already exists.
+      [x] - Users are not able to update your e-mail with an email already exists.
       [] - To update your password the user must enter his current password and inform and re-enter his new password.
 
   ## Providers Panel
