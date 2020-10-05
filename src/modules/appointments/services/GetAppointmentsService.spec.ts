@@ -2,17 +2,22 @@ import FakeAppointmentsRepository from '../repositories/fakes/FakeAppointmentsRe
 import CreateAppointmentService from './CreateAppointmentService';
 import GetAppointmentsService from './GetAppointmentsService';
 
+let fakeAppointmentsRepository: FakeAppointmentsRepository;
+let createAppointmentService: CreateAppointmentService;
+
 describe('GetAppointments', () => {
-  it('should be return all appointments created', async () => {
-    const fakeAppointmentsRepository = new FakeAppointmentsRepository();
-    const createAppointment = new CreateAppointmentService(
+  beforeEach(() => {
+    fakeAppointmentsRepository = new FakeAppointmentsRepository();
+    createAppointmentService = new CreateAppointmentService(
       fakeAppointmentsRepository,
     );
-    await createAppointment.execute({
+  });
+  it('should be return all appointments created', async () => {
+    await createAppointmentService.execute({
       date: new Date(2020, 4, 10, 11),
       providerId: '123123',
     });
-    await createAppointment.execute({
+    await createAppointmentService.execute({
       date: new Date(2020, 4, 10, 15),
       providerId: '112233',
     });
