@@ -41,6 +41,7 @@ export default class AlterProviderColumnToProvideIdInTableAppointments1593484114
       new TableColumn({
         name: 'provider',
         type: 'varchar',
+        isNullable: true,
       }),
     );
   }
