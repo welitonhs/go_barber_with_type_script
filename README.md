@@ -26,7 +26,7 @@
 
   ## Providers Panel
     **RF**
-      [] - The provider must be able to list your appointments on a specific day.
+      [x] - The provider must be able to list your appointments on a specific day.
       [] - The provider must receive a notification when any user makes an appointment with him.
       [] - The provider must be able to see notifications, unread.
     **RNF**
