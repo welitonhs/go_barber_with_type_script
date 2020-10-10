@@ -51,7 +51,7 @@
         [] - Last appointment on 17 pm.
       [] - The user can't make an appointment on an unavailable day and time.
       [] - The user can't make an appointment on past day and time.
-      [] - The user can't make an appointment with yourself.
+      [x] - The user can't make an appointment with yourself.
 
 ## Dependencies
 
