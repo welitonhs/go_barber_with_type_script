@@ -15,8 +15,11 @@ describe('CreateAppointment', () => {
   });
 
   it('should be able to create a new appointment', async () => {
+    jest.spyOn(Date, 'now').mockImplementationOnce(() => {
+      return new Date(2020, 4, 10, 12).getTime();
+    });
     const appointment = await createAppointment.execute({
-      date: new Date(),
+      date: new Date(2020, 4, 10, 13),
       userId: '123456',
       providerId: '123123',
     });
@@ -25,7 +28,10 @@ describe('CreateAppointment', () => {
   });
 
   it('should not be able to create two appointment on the same time', async () => {
-    const appointmentDateNow = new Date(2020, 4, 10, 11);
+    jest.spyOn(Date, 'now').mockImplementation(() => {
+      return new Date(2020, 4, 10, 12).getTime();
+    });
+    const appointmentDateNow = new Date(2020, 4, 15, 11);
     await createAppointment.execute({
       date: appointmentDateNow,
       userId: '123456',
@@ -36,6 +42,39 @@ describe('CreateAppointment', () => {
         date: appointmentDateNow,
         userId: '123456',
         providerId: '123123',
+      }),
+    ).rejects.toBeInstanceOf(AppError);
+  });
+
+  it('should not be able the user create appointments on a past date', async () => {
+    jest.spyOn(Date, 'now').mockImplementationOnce(() => {
+      return new Date(2020, 4, 10, 12).getTime();
+    });
+    await expect(
+      createAppointment.execute({
+        date: new Date(2020, 4, 10, 11),
+        userId: '123123',
+        providerId: '123456',
+      }),
+    ).rejects.toBeInstanceOf(AppError);
+  });
+
+  it('should not be able to create an appointment before at 8 am or after 5 pm', async () => {
+    jest.spyOn(Date, 'now').mockImplementationOnce(() => {
+      return new Date(2020, 4, 10, 7).getTime();
+    });
+    await expect(
+      createAppointment.execute({
+        date: new Date(2020, 4, 11, 7),
+        userId: '123123',
+        providerId: '123456',
+      }),
+    ).rejects.toBeInstanceOf(AppError);
+    await expect(
+      createAppointment.execute({
+        date: new Date(2020, 4, 11, 18),
+        userId: '123123',
+        providerId: '123456',
       }),
     ).rejects.toBeInstanceOf(AppError);
   });

@@ -11,7 +11,7 @@
       [x] - Ethereal to test emails on the development environment.
       [] - Amazon SES to send e-mails on the production environment.
       [] - The emails must be sent on background. (Background job)
-    **RNF**
+    **RN**
       [x] - The link sent by e-mail for the user to recover the password must expire in two hours.
       [] - The new password must be informed and re-enter.
 
@@ -20,7 +20,7 @@
       [x] - Users must be able to update your name, email, and password.
     **RNF**
 
-    **RNF**
+    **RN**
       [x] - Users are not able to update your e-mail with an email already exists.
       [] - To update your password the user must enter his current password and inform and re-enter his new password.
 
@@ -32,7 +32,7 @@
     **RNF**
       [] - The provider appointments must be saved on the cache.
       [] - The notifications must be persisted in MongoDB.
-    **RNF**
+    **RN**
       [] - The provider must see only your appointments.
       [] - The notifications must send with SOCKET.IO
 
@@ -44,13 +44,13 @@
       [] - The user must be able to make an appointment on an available day and time with a service provider.
     **RNF**
       [] - List with service providers must be saved on the cache.
-    **RNF**
-      [] - Each appointment must last one hour.
-      [] - Appointments must be available between 8 am and 6 pm.
-        [] - First appointment on 8 am.
-        [] - Last appointment on 17 pm.
-      [] - The user can't make an appointment on an unavailable day and time.
-      [] - The user can't make an appointment on past day and time.
+    **RN**
+      [x] - Each appointment must last one hour.
+      [x] - Appointments must be available between 8 am and 7 pm.
+        [x] - First appointment on 8 am.
+        [x] - Last appointment on 17 pm.
+      [x] - The user can't make an appointment on an unavailable day and time.
+      [x] - The user can't make an appointment on past day and time.
       [x] - The user can't make an appointment with yourself.
 
 ## Dependencies

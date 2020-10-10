@@ -13,6 +13,9 @@ describe('GetAppointments', () => {
     );
   });
   it('should be return all appointments created', async () => {
+    jest.spyOn(Date, 'now').mockImplementation(() => {
+      return new Date(2020, 4, 10, 7).getTime();
+    });
     await createAppointmentService.execute({
       date: new Date(2020, 4, 10, 11),
       providerId: '123123',
@@ -29,6 +32,4 @@ describe('GetAppointments', () => {
     const appointments = await allAppointments.execute();
     expect(appointments.length).toBe(2);
   });
-
-  // it('should no be able to create two appointment on the same time', () => {});
 });
