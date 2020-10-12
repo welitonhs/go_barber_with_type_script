@@ -1,14 +1,26 @@
-{
-  "type": "postgres",
-  "host": "localhost",
-  "logging": true,
-  "port": 5433,
-  "username": "postgres",
-  "password": "docker",
-  "database": "gobarber",
-  "entities": ["./src/modules/**/infra/typeorm/entities/*.ts"],
-  "migrations": ["./src/shared/infra/typeorm/migrations/*.ts"],
-  "cli": {
-    "migrationsDir": "./src/shared/infra/typeorm/migrations"
+[
+  {
+    "type": "postgres",
+    "host": "localhost",
+    "logging": true,
+    "port": 5433,
+    "username": "postgres",
+    "password": "docker",
+    "database": "gobarber",
+    "entities": ["./src/modules/**/infra/typeorm/entities/*.ts"],
+    "migrations": ["./src/shared/infra/typeorm/migrations/*.ts"],
+    "cli": {
+      "migrationsDir": "./src/shared/infra/typeorm/migrations"
+    }
+  },
+  {
+    "name": "mongo",
+    "type": "mongodb",
+    "host": "localhost",
+    "logging": true,
+    "port": 27017,
+    "database": "gobarber",
+    "useUnifiedTopology": true,
+    "entities": ["./src/modules/**/infra/typeorm/schemas/*.ts"]
   }
-}
+]
